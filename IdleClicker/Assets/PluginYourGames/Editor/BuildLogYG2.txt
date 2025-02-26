@@ -1,0 +1,3 @@
+Build path: D:/!MyGames/Idle/IdleClicker/game/0.0.2
+Build number: 2
+PluginYG version: 2.0032

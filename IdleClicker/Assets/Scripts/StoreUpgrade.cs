@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class StoreUpgrade : MonoBehaviour
 {
     [Header("Components")]
@@ -30,7 +31,7 @@ public class StoreUpgrade : MonoBehaviour
     public void ClickAction()
     {
         int price = calculatePrice();
-        bool purchaseSuccess = gameManager.PurchaceAction(price);
+        bool purchaseSuccess = gameManager.PurchaseAction(price);
         if (purchaseSuccess)
         {
             level++;
@@ -63,4 +64,16 @@ public class StoreUpgrade : MonoBehaviour
     {
         return cookesPerUpgrade * level;
     }
+
+    public int GetLevel()
+    {
+        return level;
+    }
+
+    public void SetLevel(int newLevel)
+    {
+        level = newLevel;
+        UpgradeUI();
+    }
+    
 }

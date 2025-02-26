@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using YG;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 
 public class GameManager : MonoBehaviour
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        LoadData();
         UpdateUI();
     }
 
@@ -46,9 +49,10 @@ public class GameManager : MonoBehaviour
         count++;
         count += lastIncomeValue * .02f;
         UpdateUI();
+        SaveData();
     }
 
-    public bool PurchaceAction(int cost)
+    public bool PurchaseAction(int cost)
     {
         if (count >= cost)
         {
@@ -64,4 +68,24 @@ public class GameManager : MonoBehaviour
         countText.text = count.ToString("F0");
         incomeText.text = lastIncomeValue.ToString() + "/s";
     }
+
+   private void SaveData()
+       {
+           PlayerPrefs.SetFloat("GameCount", count); // Сохраняем общий счетчик
+           for (int i = 0; i < storeUpgrades.Length; i++)
+           {
+               PlayerPrefs.SetInt("StoreUpgrade_" + i + "_Level", storeUpgrades[i].GetLevel()); // Сохраняем уровень каждого улучшения
+           }
+           PlayerPrefs.Save(); // Записываем данные на диск
+       }
+   
+       private void LoadData()
+       {
+           count = PlayerPrefs.GetFloat("GameCount", 0f); // Загружаем счетчик, по умолчанию 0
+           for (int i = 0; i < storeUpgrades.Length; i++)
+           {
+               int level = PlayerPrefs.GetInt("StoreUpgrade_" + i + "_Level", 0); // Загружаем уровень
+               storeUpgrades[i].SetLevel(level); // Устанавливаем уровень
+           }
+       }
 }

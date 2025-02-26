@@ -1,0 +1,35 @@
+{
+    "stringKeys": [],
+    "stringValues": [],
+    "floatKeys": [
+        "GameCount"
+    ],
+    "floatValues": [
+        2063514.375
+    ],
+    "intKeys": [
+        "StoreUpgrade_0_Level",
+        "StoreUpgrade_1_Level",
+        "StoreUpgrade_2_Level",
+        "StoreUpgrade_3_Level",
+        "StoreUpgrade_4_Level"
+    ],
+    "intValues": [
+        9,
+        4,
+        1,
+        1,
+        43
+    ],
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 222,
+    "count": 0.0,
+    "level": 0
+}
